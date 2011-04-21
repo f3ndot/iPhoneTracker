@@ -1,7 +1,8 @@
 //
-//  iPhoneTracking
+//  iPhoneTracking HD
 //
-//  Created by Pete Warden on 4/15/11.
+//  Originally created by Pete Warden on 4/15/11.
+//  Modified by Justin Bull on 4/20/11.
 //
 
 #import <Cocoa/Cocoa.h>

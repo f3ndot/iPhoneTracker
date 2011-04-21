@@ -50,7 +50,7 @@
 		59F0A48F1359662F00098746 /* parsembdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = parsembdb.m; sourceTree = "<group>"; };
 		59F0A63C135A4FDC00098746 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iPhoneTracking-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iPhoneTracking-Info.plist"; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* iPhoneTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPhoneTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* iPhoneTracker HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iPhoneTracker HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* iPhoneTracker.app */,
+				8D1107320486CEB800E47090 /* iPhoneTracker HD.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			name = iPhoneTracker;
 			productInstallPath = "$(HOME)/Applications";
 			productName = iPhoneTracking;
-			productReference = 8D1107320486CEB800E47090 /* iPhoneTracker.app */;
+			productReference = 8D1107320486CEB800E47090 /* iPhoneTracker HD.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +285,7 @@
 				GCC_PREFIX_HEADER = iPhoneTracking_Prefix.pch;
 				INFOPLIST_FILE = "iPhoneTracking-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = iPhoneTracker;
+				PRODUCT_NAME = "iPhoneTracker HD";
 			};
 			name = Debug;
 		};
@@ -299,7 +299,7 @@
 				GCC_PREFIX_HEADER = iPhoneTracking_Prefix.pch;
 				INFOPLIST_FILE = "iPhoneTracking-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = iPhoneTracker;
+				PRODUCT_NAME = "iPhoneTracker HD";
 			};
 			name = Release;
 		};
