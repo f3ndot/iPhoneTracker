@@ -131,7 +131,7 @@
     }
     
     if (!loadWorked) {
-        [self displayErrorAndQuit: [NSString stringWithFormat: @"Couldn't load Couldn't find iPhone location files on this machine.\n\nTried loading:\n%@/consolidated.db", backupPath]];  
+        [self displayErrorAndQuit: [NSString stringWithFormat: @"Couldn't find iPhone location files on this machine.\n\nTried loading:\n%@/consolidated.db", backupPath]];  
     }
 }
 
