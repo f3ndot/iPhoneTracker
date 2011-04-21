@@ -9,9 +9,10 @@
 #import <WebKit/WebKit.h>
 
 @interface iPhoneTrackingAppDelegate : NSObject <NSApplicationDelegate> {
-  NSWindow *window;
-  WebView *webView;
-  WebScriptObject* scriptObject;
+	NSWindow *window;
+	WebView *webView;
+	WebScriptObject* scriptObject;
+	int passLevel;
 }
 
 - (void)loadLocationDB;
@@ -20,6 +21,8 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet WebView *webView;
+@property (readwrite,assign) int passLevel;
+- (IBAction)setWifiTracking:(id)sender;
 - (IBAction)openAboutPanel:(id)sender;
 
 @end

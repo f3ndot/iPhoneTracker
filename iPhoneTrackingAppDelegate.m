@@ -13,8 +13,10 @@
 
 @synthesize window;
 @synthesize webView;
+@synthesize passLevel;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+	passLevel = 2; // I'm not sure if this is the best place
 }
 
 - displayErrorAndQuit:(NSString *)error
@@ -152,8 +154,8 @@
     
     NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
     
-    // Temporarily disabled WiFi location pulling, since it's so dodgy. Change to 
-    for (int pass=0; pass<1; /*pass<2;*/ pass+=1) {
+    // passLevel = 1 for GPS only, passLevel = 2 for GPS and Wifi
+    for (int pass=0; pass<passLevel; pass+=1) {
         
         FMResultSet* results = [database executeQuery:queries[pass]];
         
@@ -241,15 +243,31 @@
     [events setObject: newValue forKey: key];
 }
 
+- (IBAction)setWifiTracking:(id)sender {
+    
+	if ( [sender state] ) {
+		[sender setState:0];
+		passLevel = 1;
+		[self loadLocationDB];
+		NSLog(@"Disabled wifi tracking. Database reloaded.");		
+	} else { 
+		[sender setState:1];
+		passLevel = 2;
+		[self loadLocationDB];
+		NSLog(@"Enabled wifi tracking. Database reloaded.");
+    }
+	
+}
+
 - (IBAction)openAboutPanel:(id)sender {
     
-    NSImage *img = [NSImage imageNamed: @"Icon"];
+    NSImage *img = [NSImage imageNamed: @"icon"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"1.0", @"Version",
+                             @"1.1", @"Version",
                              @"iPhone Tracking HD", @"ApplicationName",
                              img, @"ApplicationIcon",
                              @"Copyright 2011, Justin Bull", @"Copyright",
-                             @"iPhone Tracking HD v1.0", @"ApplicationVersion",
+                             @"iPhone Tracking HD v1.1", @"ApplicationVersion",
                              nil];
     
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
