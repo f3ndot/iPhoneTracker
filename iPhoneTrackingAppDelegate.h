@@ -16,7 +16,7 @@
 
 - (void)loadLocationDB;
 - (BOOL)tryToLoadLocationDB:(NSString*) locationDBPath forDevice:(NSString*) deviceName;
-- (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key;
+- (void) incrementEvents:(NSMutableDictionary*)events forKey:(NSString*)key;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet WebView *webView;

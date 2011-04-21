@@ -148,7 +148,7 @@
     
     // This is the constant that controls the PoC's accuracy. Disabled to unleash full location data precision
     // const float precision = 100;
-    NSMutableDictionary* buckets = [NSMutableDictionary dictionary];
+    NSMutableDictionary* events = [NSMutableDictionary dictionary];
     
     NSString* queries[] = {@"SELECT * FROM CellLocation;", @"SELECT * FROM WifiLocation;"};
     
@@ -177,12 +177,12 @@
                 continue;
             }
             
-            const float weekInSeconds = (7*24*60*60);
-            const float timeBucket = (floor(unixTimestamp/weekInSeconds)*weekInSeconds);
+            //const float weekInSeconds = (7*24*60*60);
+            const float timeEvent = unixTimestamp;
             
-            NSDate* timeBucketDate = [NSDate dateWithTimeIntervalSince1970:timeBucket];
+            NSDate* timeEventDate = [NSDate dateWithTimeIntervalSince1970:timeEvent];
             
-            NSString* timeBucketString = [timeBucketDate descriptionWithCalendarFormat:@"%Y-%m-%d" timeZone:nil locale:nil];
+            NSString* timeEventString = [timeEventDate descriptionWithCalendarFormat:@"%Y-%m-%d %H:%M:%S" timeZone:nil locale:nil];
             
             /* // Killed off obfuscation lines for full accuracy
              * const float latitude_index = (floor(latitude*precision)/precision);  
@@ -193,10 +193,10 @@
             const float longitude_index = longitude;
             
             NSString* allKey = [NSString stringWithFormat:@"%f,%f,All Time", latitude_index, longitude_index];
-            NSString* timeKey = [NSString stringWithFormat:@"%f,%f,%@", latitude_index, longitude_index, timeBucketString];
+            NSString* timeKey = [NSString stringWithFormat:@"%f,%f,%@", latitude_index, longitude_index, timeEventString];
             
-            [self incrementBuckets: buckets forKey: allKey];
-            [self incrementBuckets: buckets forKey: timeKey];
+            [self incrementEvents: events forKey: allKey];
+            [self incrementEvents: events forKey: timeKey];
         }
     }
     
@@ -204,8 +204,8 @@
     
     [csvArray addObject: @"lat,lon,value,time\n"];
     
-    for (NSString* key in buckets) {
-        NSNumber* count = [buckets objectForKey:key];
+    for (NSString* key in events) {
+        NSNumber* count = [events objectForKey:key];
         
         NSArray* parts = [key componentsSeparatedByString:@","];
         NSString* latitude_string = [parts objectAtIndex:0];
@@ -230,15 +230,15 @@
     return YES;
 }
 
-- (void) incrementBuckets:(NSMutableDictionary*)buckets forKey:(NSString*)key
+- (void) incrementEvents:(NSMutableDictionary*)events forKey:(NSString*)key
 {
-    NSNumber* existingValue = [buckets objectForKey:key];
+    NSNumber* existingValue = [events objectForKey:key];
     if (existingValue==nil) {
         existingValue = [NSNumber numberWithInteger:0];
     }
     NSNumber* newValue = [NSNumber numberWithInteger:([existingValue integerValue]+1)];
     
-    [buckets setObject: newValue forKey: key];
+    [events setObject: newValue forKey: key];
 }
 
 - (IBAction)openAboutPanel:(id)sender {
