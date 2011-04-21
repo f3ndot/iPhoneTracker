@@ -1,7 +1,16 @@
-== iPhone Tracker HD ==
+iPhone Tracker HD
+===========
+Justin Bull <me@justinbull.ca>
 Version 1.1
 
 == New Features ==
 - Support for wireless networks location data
 - Toggle ability between GPS-only or GPS and Wifi
 - A working application icon :)
+
+== To Do ==
+- Allow for loading different iOS device location files
+- Allow for displaying multiple device files at once
+- Port to Windows (don't hold your breath!)
+
+TIP: Wifi location tracking is enabled by default, however it can be a bit slow. You can disable Wifi support in the menu
