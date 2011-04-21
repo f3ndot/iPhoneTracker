@@ -246,10 +246,10 @@
     NSImage *img = [NSImage imageNamed: @"Icon"];
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"1.0", @"Version",
-                             @"iPhone Tracking", @"ApplicationName",
+                             @"iPhone Tracking HD", @"ApplicationName",
                              img, @"ApplicationIcon",
-                             @"Copyright 2011, Pete Warden and Alasdair Allan", @"Copyright",
-                             @"iPhone Tracking v1.0", @"ApplicationVersion",
+                             @"Copyright 2011, Justin Bull", @"Copyright",
+                             @"iPhone Tracking HD v1.0", @"ApplicationVersion",
                              nil];
     
     [[NSApplication sharedApplication] orderFrontStandardAboutPanelWithOptions:options];
