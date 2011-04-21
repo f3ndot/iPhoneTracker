@@ -1,1 +1,7 @@
-Presently restored full floating-point precision of GPS latitude and longitude data. Time slot restrictions has been removed.
+== iPhone Tracker HD ==
+Version 1.1
+
+== New Features ==
+- Support for wireless networks location data
+- Toggle ability between GPS-only or GPS and Wifi
+- A working application icon :)
